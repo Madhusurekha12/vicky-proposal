@@ -34,12 +34,26 @@ document.getElementById("question").innerHTML=
 `;
 index++;
 }
-else{
-document.getElementById("question").innerHTML=
-`
-<h2>Yayyyyy ❤️</h2>
-<p>I Love You Forever Thangoww 💖</p>
-<h1>💍❤️</h1>
-`;
+else {
+    let gallery = "";
+
+    for (let i = 0; i < photos.length; i++) {
+        gallery += `
+            <img src="${photos[i]}" 
+                 style="width:220px;border-radius:15px;margin:15px;box-shadow:0 5px 15px rgba(0,0,0,0.3);">
+        `;
+    }
+
+    document.getElementById("question").innerHTML = `
+        <h2>Yayyyyy ❤️</h2>
+        <p>I Love You Forever Thangoww 💖</p>
+
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;">
+            ${gallery}
+        </div>
+
+        <h1>💍❤️ Will You Marry Me? ❤️💍</h1>
+    `;
+}
 }
 }
