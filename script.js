@@ -12,21 +12,36 @@ let questions = [
 
 let index = 0;
 
-function nextQuestion() {
-  const box = document.getElementById("questionBox");
+function start() {
+  document.getElementById("startScreen").style.display = "none";
+  document.getElementById("qBox").style.display = "block";
+  showQuestion();
+}
+
+function showQuestion() {
+  document.getElementById("question").innerText = questions[index];
+  document.getElementById("msg").innerText = "";
+}
+
+function answerYes() {
+
+  // special moment at first question
+  if (index === 0) {
+    document.getElementById("msg").innerText = "You're the best baby 💖";
+  }
+
+  index++;
 
   if (index < questions.length) {
-    box.innerHTML = `
-      <p id="question">${questions[index]}</p>
-      <button onclick="nextQuestion()">Yes ❤️</button>
-    `;
-    index++;
-  } 
-  else {
-    box.innerHTML = `
-      <h2>Yayyyyy ❤️</h2>
-      <p>I Love You Forever Thangoww 💖</p>
-      <h1>💍❤️</h1>
-    `;
+    showQuestion();
+  } else {
+    document.getElementById("qBox").innerHTML =
+      `<h1>💍 YAYYYY 💖</h1>
+       <p>I Love You Forever Thangoww 💕</p>`;
   }
+}
+
+function answerNo() {
+  document.getElementById("msg").innerText =
+    "pandhi, waste fellow, korangu, mental 😤 choose YES option otherwise champutha po 💢";
 }
