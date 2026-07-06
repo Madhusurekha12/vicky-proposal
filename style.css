@@ -1,30 +1,26 @@
-body{
-background:#ffdde1;
-font-family:Arial;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-margin:0;
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: pink;
+  font-family: Arial;
+  text-align: center;
 }
 
-.container{
-background:white;
-padding:30px;
-border-radius:20px;
-text-align:center;
-width:90%;
-max-width:400px;
-box-shadow:0 0 20px pink;
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 20px;
 }
 
-button{
-padding:15px 30px;
-border:none;
-background:#ff4081;
-color:white;
-font-size:18px;
-border-radius:30px;
-cursor:pointer;
-margin-top:20px;
+button:first-of-type {
+  background: red;
+  color: white;
+}
+
+button:last-of-type {
+  background: black;
+  color: white;
 }
