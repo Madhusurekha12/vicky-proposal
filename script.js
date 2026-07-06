@@ -55,5 +55,8 @@ else {
         <h1>💍❤️ Will You Marry Me? ❤️💍</h1>
     `;
 }
+  window.onload = function() {
+    nextQuestion();
+};
 
 
