@@ -4,30 +4,57 @@
   <title>💖 YES!</title>
   <style>
     body {
-      background: linear-gradient(135deg, #ff4d6d, #ffb6c1);
+      margin: 0;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      font-family: Arial;
+      background: radial-gradient(circle, #ff4d6d, #000);
       color: white;
-      text-align: center;
+      font-family: Arial;
+      overflow: hidden;
     }
 
     h1 {
-      font-size: 40px;
-      animation: pop 1s ease-in-out infinite alternate;
+      font-size: 45px;
+      text-align: center;
+      animation: pop 1s infinite alternate;
     }
 
     @keyframes pop {
       from {transform: scale(1);}
-      to {transform: scale(1.1);}
+      to {transform: scale(1.15);}
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      animation: fall 5s linear infinite;
+    }
+
+    @keyframes fall {
+      from {transform: translateY(-10vh);}
+      to {transform: translateY(110vh);}
     }
   </style>
 </head>
 <body>
 
-  <h1>YAYYY 💍💖<br>You made me the happiest person! 😭✨</h1>
+  <h1>💍 YOU SAID YES 💖<br>My world is complete 😭✨</h1>
+
+  <script>
+    function heart() {
+      const h = document.createElement("div");
+      h.classList.add("heart");
+      h.innerHTML = "💖";
+      h.style.left = Math.random() * 100 + "vw";
+      document.body.appendChild(h);
+
+      setTimeout(() => h.remove(), 5000);
+    }
+
+    setInterval(heart, 150);
+  </script>
 
 </body>
 </html>
