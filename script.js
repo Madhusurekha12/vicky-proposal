@@ -21,41 +21,54 @@ function start() {
 
 function showQuestion() {
   document.getElementById("question").innerText = questions[index];
-}
-
-function nextYes() {
-  index++;
-
+  document.getElementById("bigEmoji").innerText = "🥰";
   document.getElementById("msg").innerText = "";
+}
 
-  if (index < questions.length) {
-    showQuestion();
-  } else {
-    showFinal();
+/* YES CLICK */
+function yesClick() {
+
+  // message
+  document.getElementById("msg").innerText =
+    "Good job my boy 😘💖💋";
+
+  // big emoji reaction
+  document.getElementById("bigEmoji").innerText = "🥰😍💖";
+
+  // hearts explosion
+  for (let i = 0; i < 15; i++) {
+    let heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerText = "💖💋❤️";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.top = "80vh";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 2000);
   }
+
+  // move to next question after delay
+  setTimeout(() => {
+    index++;
+
+    if (index < questions.length) {
+      showQuestion();
+    } else {
+      showFinal();
+    }
+  }, 1200);
 }
 
+/* NO CLICK */
 function noClick() {
-  let msg = document.getElementById("msg");
-
-  msg.innerText = "😡 Choose YES only! You don’t have option!";
+  document.getElementById("msg").innerText =
+    "Champutha go choose option Yes otherwise Only once fasaaak 😡";
 }
 
+/* FINAL SCREEN */
 function showFinal() {
   document.getElementById("qBox").classList.add("hidden");
   document.getElementById("finalScreen").classList.remove("hidden");
-
-  // small heart animation
-  for (let i = 0; i < 20; i++) {
-    let heart = document.createElement("div");
-    heart.innerHTML = "💖";
-    heart.style.position = "absolute";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.top = "100vh";
-    heart.style.fontSize = "20px";
-    heart.style.animation = "floatUp 3s linear forwards";
-    document.body.appendChild(heart);
-
-    setTimeout(() => heart.remove(), 3000);
-  }
 }
