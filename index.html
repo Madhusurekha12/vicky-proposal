@@ -6,23 +6,29 @@
 </head>
 <body>
 
-<div class="container">
+<!-- Promise Screen -->
+<div id="startScreen" class="center">
+  <h1>Hey Vickyluh ❤️</h1>
+  <p>Before you answer anything, promise you will read till the end 💕</p>
+  <button onclick="start()">I Promise 💖</button>
+</div>
 
-  <!-- 1st screen -->
-  <div id="startScreen">
-    <h1>Hey Vickyluh ❤️</h1>
-    <p>Before you answer anything, promise you will read until the end 💕</p>
-    <button onclick="start()">I Promise 💖</button>
+<!-- Question Screen -->
+<div id="qBox" class="center hidden">
+  <h2 id="question"></h2>
+
+  <div class="btns">
+    <button id="yesBtn" onclick="nextYes()">Yes ❤️</button>
+    <button id="noBtn" onclick="noClick()">No 😶</button>
   </div>
 
-  <!-- question box -->
-  <div id="qBox" style="display:none;">
-    <h2 id="question"></h2>
-    <button onclick="answerYes()">Yes 💖</button>
-    <button onclick="answerNo()">No 😶</button>
-    <p id="msg"></p>
-  </div>
+  <p id="msg"></p>
+</div>
 
+<!-- Final Screen -->
+<div id="finalScreen" class="center hidden">
+  <h1>💍 Will You Marry Me? 💍</h1>
+  <p>You're the best thing that ever happened to me ❤️</p>
 </div>
 
 <script src="script.js"></script>
