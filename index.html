@@ -1,43 +1,189 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>For You 💖</title>
-
-  <!-- Stylish Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Vickyluh ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Poppins',sans-serif;background:#ffe6ea;color:#4a2c2a;overflow-x:hidden}
+  .screen{min-height:100vh;display:none;flex-direction:column;align-items:center;justify-content:center;padding:20px;text-align:center}
+  .active{display:flex}
+  
+  /* HERO */
+  .hero{background:url('hero.jpg') center/cover no-repeat;position:relative;color:#fff}
+  .hero::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5)}
+  .hero-content{position:relative;z-index:2}
+  .hero h1{font-family:'Dancing Script',cursive;font-size:4rem;color:#ffb3c6;margin-bottom:20px}
+  .btn{background:#ff4d6d;color:#fff;border:none;padding:15px 40px;border-radius:50px;font-size:1.2rem;cursor:pointer;font-weight:600;box-shadow:0 5px 20px rgba(255,77,109,0.4)}
+  
+  /* QUESTION CARDS */
+  .card{background:#fff;border-radius:25px;padding:30px;max-width:900px;width:90%;box-shadow:0 10px 40px rgba(0,0,0,0.1);display:flex;gap:30px;align-items:center}
+  .card:nth-child(even){flex-direction:row-reverse}
+  .card img{width:45%;border-radius:20px}
+  .card .text{width:55%;text-align:left}
+  .num{color:#ff4d6d;font-size:1.3rem;font-weight:700}
+  .card h3{font-family:'Dancing Script',cursive;font-size:2.2rem;color:#ff4d6d;margin:10px 0}
+  .q-btns{margin-top:20px;display:flex;gap:15px}
+  .q-btn{padding:12px 30px;border:none;border-radius:30px;font-size:1.1rem;cursor:pointer;font-weight:600}
+  .yes{background:#ff4d6d;color:#fff}
+  .no{background:#ccc;color:#333}
+  .response{margin-top:15px;font-size:1.2rem;font-weight:600;color:#ff4d6d;display:none}
+  
+  /* FINAL */
+  .final{background:linear-gradient(135deg,#ff9a9e,#fad0c4);color:#fff}
+  .final h2{font-family:'Dancing Script',cursive;font-size:3.5rem;margin:20px 0}
+  .final img{width:350px;border-radius:25px;margin:20px 0}
+  
+  /* KISSES RAIN */
+  .kiss{position:fixed;top:-10%;font-size:25px;animation:fall 3s linear forwards;z-index:999}
+  @keyframes fall{to{transform:translateY(110vh) rotate(360deg);opacity:0}}
+  
+  /* HEARTS */
+  .heart{position:fixed;bottom:-10%;font-size:20px;color:#ff4d6d;animation:float 4s linear forwards}
+  @keyframes float{to{transform:translateY(-110vh);opacity:0}}
+</style>
 </head>
-
 <body>
 
-<!-- Start Screen -->
-<div id="startScreen" class="center">
-  <h1>Hey Vickyluh ❤️</h1>
-  <p>Promise me you will read till end 💕</p>
-  <button onclick="start()">I Promise 💖</button>
-</div>
+<audio id="bgMusic" loop><source src="your-song.mp3" type="audio/mpeg"></audio>
 
-<!-- Question Screen -->
-<div id="qBox" class="center hidden">
-
-  <div id="bigEmoji">🥰</div>
-
-  <h2 id="question"></h2>
-
-  <div class="btns">
-    <button onclick="yesClick()">Yes ❤️</button>
-    <button onclick="noClick()">No 😶</button>
+<!-- SCREEN 0: HERO -->
+<div class="screen hero active" id="s0">
+  <div class="hero-content">
+    <h1>Hey Vickyluh ❤️</h1>
+    <p style="font-size:1.3rem;margin-bottom:30px">Before you answer anything...<br>promise you'll read until the end? 🥺</p>
+    <button class="btn" onclick="next(1)">I Promise 💖</button>
   </div>
-
-  <p id="msg"></p>
 </div>
 
-<!-- Final Screen -->
-<div id="finalScreen" class="center hidden">
-  <h1>💖 I LOVE YOU VICKY 💖</h1>
+<!-- Q1 -->
+<div class="screen" id="s1">
+  <div class="card">
+    <div class="text">
+      <div class="num">01</div>
+      <h3>Vickyluh,</h3>
+      <p style="font-size:1.3rem">will you marry me? 💍</p>
+      <div class="q-btns">
+        <button class="q-btn yes" onclick="handleYes(2)">Yes</button>
+        <button class="q-btn no" onclick="handleNo(this)">No</button>
+      </div>
+      <div class="response" id="r1"></div>
+    </div>
+    <img src="photo1.jpg">
+  </div>
 </div>
 
-<script src="script.js"></script>
+<!-- Q2 -->
+<div class="screen" id="s2">
+  <div class="card">
+    <img src="photo2.jpg">
+    <div class="text">
+      <div class="num">02</div>
+      <h3>Babe,</h3>
+      <p style="font-size:1.3rem">will you be mine forever? ❤️</p>
+      <div class="q-btns">
+        <button class="q-btn yes" onclick="handleYes(3)">Yes</button>
+        <button class="q-btn no" onclick="handleNo(this)">No</button>
+      </div>
+      <div class="response" id="r2"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Q3 to Q8 - same pattern -->
+<div class="screen" id="s3"><div class="card"><div class="text"><div class="num">03</div><p style="font-size:1.3rem">Will you grow old with me, Vicky Mah? 🥹</p><div class="q-btns"><button class="q-btn yes" onclick="handleYes(4)">Yes</button><button class="q-btn no" onclick="handleNo(this)">No</button></div><div class="response" id="r3"></div></div><img src="photo3.jpg"></div></div>
+<div class="screen" id="s4"><div class="card"><img src="photo4.jpg"><div class="text"><div class="num">04</div><p style="font-size:1.3rem">Will you hold my hand through every happiness and every challenge? 🤝❤️</p><div class="q-btns"><button class="q-btn yes" onclick="handleYes(5)">Yes</button><button class="q-btn no" onclick="handleNo(this)">No</button></div><div class="response" id="r4"></div></div></div></div>
+<div class="screen" id="s5"><div class="card"><div class="text"><div class="num">05</div><p style="font-size:1.3rem">Will you keep choosing me, every single day? 🌸</p><div class="q-btns"><button class="q-btn yes" onclick="handleYes(6)">Yes</button><button class="q-btn no" onclick="handleNo(this)">No</button></div><div class="response" id="r5"></div></div><img src="photo5.jpg"></div></div>
+<div class="screen" id="s6"><div class="card"><img src="photo6.jpg"><div class="text"><div class="num">06</div><p style="font-size:1.3rem">Will you let me annoy you, love you, and spoil you forever? 🥰💕</p><div class="q-btns"><button class="q-btn yes" onclick="handleYes(7)">Yes</button><button class="q-btn no" onclick="handleNo(this)">No</button></div><div class="response" id="r6"></div></div></div></div>
+<div class="screen" id="s7"><div class="card"><div class="text"><div class="num">07</div><p style="font-size:1.3rem">Will you make thousands of beautiful memories with me? ✨</p><div class="q-btns"><button class="q-btn yes" onclick="handleYes(8)">Yes</button><button class="q-btn no" onclick="handleNo(this)">No</button></div><div class="response" id="r7"></div></div><img src="photo7.jpg"></div></div>
+<div class="screen" id="s8"><div class="card"><img src="photo8.jpg"><div class="text"><div class="num">08</div><p style="font-size:1.3rem">Will you always be my safe place and my home? 🏠❤️</p><div class="q-btns"><button class="q-btn yes" onclick="handleYes(9)">Yes</button><button class="q-btn no" onclick="handleNo(this)">No</button></div><div class="response" id="r8"></div></div></div></div>
+
+<!-- Q9 -->
+<div class="screen" id="s9">
+  <div class="card">
+    <div class="text">
+      <div class="num">09</div>
+      <h3>One last question...</h3>
+      <p>No matter where life takes us,<br>
+      I want every chapter of my story to have you in it.<br>
+      You're my favorite person, my peace,<br>
+      my happiness, and my forever. 💕</p>
+      <div class="q-btns">
+        <button class="q-btn yes" onclick="handleYes(10)">Next</button>
+        <button class="q-btn no" onclick="handleNo(this)">No</button>
+      </div>
+      <div class="response" id="r9"></div>
+    </div>
+    <img src="photo9.jpg">
+  </div>
+</div>
+
+<!-- FINAL SCREEN -->
+<div class="screen final" id="s10">
+  <img src="photo10.jpg">
+  <h2>Can I be your wife<br>and your forever,<br>thangoww? 💖</h2>
+  <div class="q-btns">
+    <button class="q-btn yes" onclick="finalYes()">Yes</button>
+    <button class="q-btn no" onclick="handleNo(this)">No</button>
+  </div>
+  <div class="response" id="r10" style="font-size:2rem;margin-top:20px"></div>
+  <p style="margin-top:30px;font-size:1.1rem">Forever & Always ♥ Madhu ♥ Vicky</p>
+</div>
+
+<script>
+let current = 0;
+function next(n){
+  document.querySelector('.active').classList.remove('active');
+  document.getElementById('s'+n).classList.add('active');
+  document.getElementById('bgMusic').play();
+  current = n;
+}
+
+function handleYes(n){
+  let r = document.getElementById('r'+current);
+  r.innerHTML = "Thank you my love 💋";
+  r.style.display = 'block';
+  kissRain();
+  setTimeout(()=>next(n), 1500);
+}
+
+function handleNo(btn){
+  let r = document.getElementById('r'+current);
+  r.innerHTML = "Eai go choose option Yes po 😡";
+  r.style.display = 'block';
+  btn.disabled = true;
+  setTimeout(()=>{r.style.display='none'; btn.disabled=false;}, 2000);
+}
+
+function finalYes(){
+  document.getElementById('r10').innerHTML = "AWW I LOVE YOU VICKY ❤️❤️";
+  document.getElementById('r10').style.display = 'block';
+  kissRain();
+  heartFloat();
+}
+
+function kissRain(){
+  for(let i=0;i<30;i++){
+    let k = document.createElement('div');
+    k.className='kiss';
+    k.style.left = Math.random()*100+'%';
+    k.innerHTML='💋';
+    document.body.appendChild(k);
+    setTimeout(()=>k.remove(),3000);
+  }
+}
+function heartFloat(){
+  setInterval(()=>{
+    let h = document.createElement('div');
+    h.className='heart';
+    h.style.left = Math.random()*100+'%';
+    h.innerHTML='❤️';
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),4000);
+  },200);
+}
+</script>
 </body>
 </html>
