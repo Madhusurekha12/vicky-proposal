@@ -1,3 +1,15 @@
+const photos = [
+  "images/image.png.jpeg",
+  "images/image1.png.jpeg",
+  "images/image2.png.jpeg",
+  "images/image3.png.jpeg",
+  "images/image4.png.jpeg",
+  "images/image5.png.jpeg",
+  "images/image6.png.jpeg",
+  "images/image7.png.jpeg",
+  "images/image8.png.jpeg",
+  "images/image9.png.jpeg"
+];
 let questions=[
 "Vickyluh, will you marry me? 💍",
 "Babe, will you be mine forever? ❤️",
