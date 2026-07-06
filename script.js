@@ -1,34 +1,32 @@
-function yesClick() {
-  window.location.href = "yes.html";
+let questions = [
+  "Vickyluh, will you marry me? 💍",
+  "Babe, will you be mine forever? ❤️",
+  "Will you grow old with me Vicky Mah? 🥹",
+  "Will you hold my hand forever? 🤝",
+  "Will you keep choosing me every day? ❤️",
+  "Will you let me annoy you forever? 😂",
+  "Will you make beautiful memories with me? 📸",
+  "Will you always love me? ❤️",
+  "Can I be your wife and your forever, Thangoww? 💍❤️"
+];
+
+let index = 0;
+
+function nextQuestion() {
+  const box = document.getElementById("questionBox");
+
+  if (index < questions.length) {
+    box.innerHTML = `
+      <p id="question">${questions[index]}</p>
+      <button onclick="nextQuestion()">Yes ❤️</button>
+    `;
+    index++;
+  } 
+  else {
+    box.innerHTML = `
+      <h2>Yayyyyy ❤️</h2>
+      <p>I Love You Forever Thangoww 💖</p>
+      <h1>💍❤️</h1>
+    `;
+  }
 }
-
-/* loader */
-window.onload = () => {
-  setTimeout(() => {
-    document.getElementById("loader").style.display = "none";
-    document.getElementById("main").classList.remove("hidden");
-  }, 2000);
-};
-
-/* runaway NO */
-const noBtn = document.getElementById("noBtn");
-
-noBtn.addEventListener("mouseover", () => {
-  noBtn.style.left = Math.random() * window.innerWidth + "px";
-  noBtn.style.top = Math.random() * window.innerHeight + "px";
-});
-
-/* hearts */
-const hearts = document.querySelector(".hearts");
-
-function createHeart() {
-  const s = document.createElement("span");
-  s.innerHTML = "💖";
-  s.style.left = Math.random() * 100 + "vw";
-  s.style.animationDuration = (Math.random() * 3 + 3) + "s";
-  hearts.appendChild(s);
-
-  setTimeout(() => s.remove(), 6000);
-}
-
-setInterval(createHeart, 200);
