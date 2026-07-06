@@ -1,100 +1,55 @@
 body {
   margin: 0;
   height: 100vh;
-  overflow: hidden;
-  font-family: Arial;
-  background: linear-gradient(135deg, #ff6a88, #ff99ac);
-  color: white;
-}
-
-/* loader */
-.loader {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: black;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10;
-}
-
-/* main */
-.container {
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  font-family: 'Poppins', sans-serif;
   text-align: center;
-  position: relative;
-  top: 25%;
+  color: white;
 }
 
-.hidden {
-  display: none;
+.container {
+  width: 90%;
+}
+
+.title {
+  font-size: 55px;
+  font-family: 'Great Vibes', cursive;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px white;
+}
+
+.intro {
+  font-size: 18px;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+#questionBox {
+  background: rgba(0,0,0,0.2);
+  padding: 25px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+#question {
+  font-size: 22px;
+  margin-bottom: 20px;
 }
 
 button {
   padding: 12px 25px;
-  margin: 10px;
   border: none;
-  border-radius: 25px;
+  border-radius: 30px;
   font-size: 18px;
-}
-
-.yes {
+  cursor: pointer;
   background: #ff2e63;
   color: white;
+  transition: 0.3s;
 }
 
-.no {
-  background: #222;
-  position: absolute;
-  color: white;
-}
-
-/* glow text */
-.glow {
-  font-size: 40px;
-  text-shadow: 0 0 10px white, 0 0 20px pink;
-}
-
-/* animations */
-.typewriter {
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 2px solid white;
-  width: 0;
-  animation: typing 3s steps(20, end) forwards;
-}
-
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-
-.fade {
-  animation: fadeIn 2s ease-in;
-}
-
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
-.bounce {
-  animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-  0%,100% {transform: translateY(0);}
-  50% {transform: translateY(-10px);}
-}
-
-/* hearts */
-.hearts span {
-  position: absolute;
-  color: pink;
-  animation: float 6s linear infinite;
-}
-
-@keyframes float {
-  from {transform: translateY(100vh);}
-  to {transform: translateY(-10vh);}
+button:hover {
+  transform: scale(1.1);
 }
